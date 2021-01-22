@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="">
+<head>
+    <title>Spring Security Example</title>
+</head>
+<body>
+<h1>This is the body of the sample view</h1>
+
+<div sec:authorize="hasRole('USER')">
+    This text is only visible to a user
+    <br/><br/>
+    <a th:href="@{admin/adminpage.html}">Restricted Admin Page</a>
+    <br/><br/>
+</div>
+
+<div sec:authorize="hasRole('ADMIN')">
+    This text is only visible to an admin
+    <br/><br/>
+    <a th:href="@{admin/adminpage.html}">Admin Page</a>
+    <br/><br/>
+</div>
+
+<a th:href="@{/perform_logout}">Logout</a>
+</body>
+</html>
